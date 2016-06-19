@@ -1,0 +1,8 @@
+Generalized Hough Transformation:
+
+As long as we know the value of the transformation's parameter, the position of the model in the image can be determined
+
+*****
+
+Horizontale Linie in Hough Raum auf höhe r
+-> Ortsraum: Alle geraden, die den Kreis mit dem abstand r zu 0,0 schneiden. 

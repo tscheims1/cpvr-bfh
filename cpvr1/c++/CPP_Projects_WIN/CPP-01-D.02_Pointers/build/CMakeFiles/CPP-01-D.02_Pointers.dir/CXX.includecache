@@ -1,0 +1,12 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/media/tscheims/D22279A9227992E9/Users/James/SkyDrive/Bfh/cpvr/introduction/c++/CPP_Projects_WIN/CPP-01-D.02_Pointers/src/Pointers.cpp
+iostream
+-
+

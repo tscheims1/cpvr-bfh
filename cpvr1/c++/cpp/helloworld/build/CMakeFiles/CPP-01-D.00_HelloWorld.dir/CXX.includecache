@@ -1,0 +1,12 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/tscheims/Documents/BFH/cpp/helloworld/src/TestClass.cpp
+TestClass.h
+/home/tscheims/Documents/BFH/cpp/helloworld/src/TestClass.h
+

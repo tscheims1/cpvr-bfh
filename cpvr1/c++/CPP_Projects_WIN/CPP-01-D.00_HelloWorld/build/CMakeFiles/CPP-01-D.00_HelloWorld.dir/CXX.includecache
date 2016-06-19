@@ -1,0 +1,14 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/tscheims/Documents/BFH/CPP_Projects_WIN/CPP-01-D.00_HelloWorld/src/HelloWorld.cpp
+iostream
+-
+string
+-
+

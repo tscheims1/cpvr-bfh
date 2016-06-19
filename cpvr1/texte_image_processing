@@ -1,0 +1,364 @@
+strahlenmodell
+
+brechungsindex: faktor für geschwindigkeit zu licht im vaakum (c/n m/s)
+snell: bricht(Refraktion) zu lot (von leicht zu dichterem medium) --- beim eintritt: je mehr vom lot weg, desto mehr brichts zum lot
+totalreflexion: unter flachem winkel reflektiert (dichteres medium)
+
+
+**
+Luminessenz:
+
+Phonton ---> wird von Elektron absorbiert ---> Elektron kreist weiter entfernt um atomkern (gewinnt an energie)
+Elektorn emissoniert Photon ---> photon fliegt weg --->  Elektron kreist wieder näher am Kern (verliert energie)
+
+******
+Lichtquellen
+
+Wärestrahler
+Natürlich: : Sonne, Blitz, brennendes Holz
+Künstlich: Glühbirne, Halogen
+
+Luminessenzstrahler
+LED,Laser, Glühkäfer / Würmer, Fluoreszenz
+
+*****
+Sendefrequenz + Energie v. Photons = Proporzonal
+Lichtgeschwindigkeit = 3*10^8 m/s
+
+****
+Wellenmodell
+El-Feld und magnetFeld = senkrecht zueinander (Vaakum)
+Sichtbarer Bereich 400-700nm, 1% der elmagnetischen Wellen
+>Rot Infrarot
+Rot (650-700)
+Grün (540-550)
+Blau (430-440)
+>Blau = Ultraviolet
+
+Brechungsindex von Welle abhängig (Prisma Weisses Licht -> regenbogen)
+
+phasengeschwindigkeit lamda(distanz)/Peroidendauer(Zeit) -- phasengeschwindigkeit harmonische welle(bei überlagerungen)
+Gruppengeschwindigkeit = Geschwindigkeit wie sich Wellenpaket fortbewegt
+
+Warum Regenbogen: Wellen werden unterschiedlich gebrochen - Zweiter Regenbogen 1x mehr gebrochen
+
+Polarisationsfilter
+lässt nur eine Schwingungsausrichtung passieren
+- Fotografie störende Spiegelung entfernen
+- LCD Moditor für Pixelanzeige
+- Sonnenbrille: Blau abdunkeln
+- Tiefenblick (zwei Projektoren / überlagerung Bilder)
+
+Auge:
+Hornhaut ->  Kammerwasser -> Pupile -> Linse -> Netzhaut(Retina)
+
+
+Pupille: Blende
+
+Retina(Netzhaut)
+Umcodierung d. Informationen
+
+untere Schicht
+- Ganglionzellen :  Kompression 130Mio Signale -> 1Mio verarbeitete
+Mittlere Schicht
+- Bipolar / Horizontalzellen
+	--> für Kanten und Kontrastverstärkung
+	--> Farbumcodierung
+	--> Daten/Rauschreduzierung
+	--> Umwandlung der L-Typ,M-Typ,S-Typ in GelbBlau, GrünRot, Helldunkel
+obere Schicht
+ Rezeptoren (Lichtempfindlich!)
+ Kompression 130Mio Signale -> 1Mio verarbeitete
+
+*****
+Rezeptoren
+- Enthalten Farbstoff Rhodopsin:
+- Vitamin A für Spaltung in Bestandteile
+
+-Stäbchen
+ Hochempflindlich: breiter Wellenbereich
+ Schwarzweiss sehen zuständig
+ Tag: Abgeschalten - kommen bei Dämmerung zum einsatz
+
+- Zäpfen
+ Hochempfindlich: schmaler Wellenbereich
+ Farbsehen zuständig
+
+Verteilung 
+ - ca 10 mehr Stäbchen 
+ - fast alle Zapfen in Fovea - Farbsehen nur ca. 1 5CHF Stück - armlänge entfernt 
+
+
+Farbsehen
+
+	Hue: Farbton - Dominate Schwingung der Farbe
+	Helligkeit 	 - Strahlungsdichte / Engerie des Lichtstrahls
+	Sättigung 	 - (reiner Farbanteil- weissanteil) / (Reiner Farbanteil )
+
+Tristimulustheorie
+3 Zapfentypen
+	L-Type: Gelb 40%
+	M-Type: Grün 50%
+	S-Type: Blau 10%
+
+Additiv der Kurven: 55mn -> Grün
+
+Umwandlung der L-Typ,M-Typ,S-Typ in GelbBlau, GrünRot, Helldunkel
+-> Darum Farbblindheit /RotGrün / Gelbblau
+
+
+Kontrastempfindlichkeit
+- Helligkeit einer Fläche abhängig von Nachbarsflächen
+- Datenreduktion --> Kantendedetion -> nur kanten ans hirn gesendet
+- bei kreuzung 4 --> halb weiss halb schwarz
+Frage: - Warum beim fokus kein solcher effekt?
+
+
+
+RGB - Rot Grün Blau
+
+ Additives Farbmischung	
+ Raumdiagonale: graustufen
+ Weiss: 1,1,1
+ Cyian: 0,1,1 (türkis)
+ Gelb: 1,1,0 
+ Mangenta 1,0,1 (violett)
+ gegenüberliegend: komplementärfarben
+
+CMY-K
+	RGB übereinander beim Druck nicht brauchbar.
+	Subtraktive Farbmischung
+	C = 1-R, absorbiert R, reflektiert G,B
+	M = 1-G, absorberit G, reflektiert R,B
+	Y = 1-B, absorbiert B, reflektiert R,G
+	Undercover Removal: kleinster Farbanteil durch Schwarz(graustufe ersetzt)
+
+HSV
+	Hue (Farbton)
+	Saturation(Sättigung)
+	Leuchtdichtewert,Helligkeit(Value)
+
+	Diamant
+	Hue 
+		Winkel, 0°C Rot 120° Grün 240° Blau
+	Satt
+		Abstand von Radius (0: Weiss;1 Farbton)
+		Max(r,g,b) - min(r,g,b)/ max(r,g,b)
+	Value 
+		Tiefe ==> 0 Weiss, 1 Schwarz
+		Max(r,g,b)
+		Helligkeit
+	H=0; S=0, => gerade --> alle graustufen v. Weiss bis Schwarz
+
+	HSL, HSB --> H+S gleich, B/L gewichteter Mittelwert RGB (=Helligkeit)
+
+PAL/ YUV (=Analog Fernsehen)
+
+	Reduktion Bandbreite
+	Kompatibel zu S/W
+	Bewechte Bilder müssen nicht so detailiert sein (Fovea!)
+	
+	Y Helligkeitssignal Lumminanz
+	U,V 2 Farbsignale Chrominanz
+
+	Y = Mittlere Helligkeit (Graustufen: 0.3*R+0.6*G+0.1*B)
+	U = Differenz Blauanteil zur Helligkeit
+	V = Differenz Rotanteil zur Helligkeit
+
+	Y Volle Auflösung übertragen (Kompatibel zu S/W Fernseher)
+	U,Y Halbe Auflösung
+
+YCbCr
+	analog zu YUV für digtales Fernsehen
+	Cb = Blue Yellow
+	Cr = Green Red
+	--> so werden Farben auch ans Gehirn weitergeleitet!
+
+CNS Farbmodell 
+	Beschreibung der Farbe in Worten Rot Grün 
+	Farbon, Abstufungen zwischen Farbtönen, Grün-Blau
+	Sättigung, Stark, gräulich
+	Helligkeit: Dunkel, Hell
+
+
+Optik
+	Camera Obscura - sehr kleines Loch - lange Belichtungszeit 
+	-> Heute Samellinse
+
+	Brennpunkt F bei Sammellinse hinter Linse (Schnittpunkt gerade linie und strahl des Gegenstands)
+	1/b + 1/g = 1/f
+	Brennweite f: Linse <-> Brennpunkt
+	Abbildungsmassstab = g/b = G/B 
+
+	Blendenzahl k = f/D (Brennweite/Durchmesser d. öffnung)
+	je grösser Zahl, desto kleiner Durchmesser -> desto weniger Licht kommt durch.
+	Schärfentiefe -> je grösser Blendenzahl, desto Schärfer wirkt das Bild (wie camera obscura)
+
+
+Abbildungsfehler (Aberration)
+	Chromatische Abberation
+	Unterschiedliche Brechungswinkel von Lichtstrahlen verschiedener Wellenlänge
+	-->Gegenmassnahme: Farbenkorrigiertes Objektiv
+
+	Spährische Abberation
+ 	- Spährische (mit Radius) Linsen sind günstiger -> ungenauer Brennpunkt
+	-> Gegenmassnahme: Aspährische Linsen verwenden
+ 
+	Verzeichnung Distorbation
+	-> je kleiner Brennweite, desto grösser ist Distorbation
+	-> Abbildungskreis beim Fischauge objektiv
+	-> entstehen durch Blende (kann nicht vermieden werden)
+
+	Vignettierung
+		Lichtabnahme zum Rand.
+		Lichtabnahme, wenn licht nicht mehr rechtwicklig auf den Sensor trifft.
+		Mechanische Vignettierung: durch Fassungsteile des Objektives
+
+Wie am besten Vignettierung verhindern??
+
+Modulations Transfer Funktion
+
+	Qualtitästmerkmal für Objektiv
+		Muss S/W Linien Unterscheiden können -> Linien werden immer enger. (Linienpaare / mm)
+	Auflösungsgrenze nimmt von Zentrum zu Rand um Faktor 2-3 ab.		
+	
+
+Objektivtypen
+
+	Festbrennweitobjektive (keine Blenden / keine Fokuseinstellungen) - beste Objektive
+	80-90 MTF Standard
+	>120 	  Präzisionsobjektive
+
+	Zoomobjektive variable Brennweite mit Fokus / Blendeneinstellung
+	
+	Telezentrische objektive 
+		Orthogonale Projektion (Bildgrösse ist unabhängig von Gegenstandsweite)
+
+Sensorgrösse & Auflösung
+	Pixelgrösse ab 2.6nm nicht mehr entscheidend, da wir nicht mehr unterscheiden können (Fovea)
+	
+
+Spektrale Empfindlichkeit
+	Kamerasensoren enthalten IR und UV Filter 
+
+Sensorgrössen
+	Quantumeffizienz: Wahrscheinlichkeit, das Photon absorbiert wird.
+	Sättigungskapazität: Wieviele Photonen kann eine Zelle aufnhemen.
+	Dynamic Range: verhältnis Sättigungskapazität zu minimal detektierbarer Photonenmenge
+	Gain: Wie stark muss das Sensor Signal verstärkt werden.
+	A/D Wandler: Anzahl Diskretionsschritte
+	Noise: Durch die elektornik hinzugefügtes Rauschen.
+
+
+Defekte Pixel:
+	Tote Pixel: keine Sättigung 
+	Warme Pixel: Sättigung randomized
+	Heisse Pixel: volle Sättigung
+
+Sensorrauschen:
+	Photonenrauschen: Lichtstrom ist Poisson-Verteilt
+	Dunkelstromrauschen: Erhitzung des Sensors (z.B. lange Belichtungszeiten)
+	Ausleserauschen: Umwandlung von Photonen -> el Signale nicht gleichmässig
+	Quantisierungsrauschen: A/W Wandlungsrauschen
+	Fixed Pattern Rauschen: Verunreinigung auf Sensor
+	Verstärkungsrauschen
+
+
+Blooming
+
+	Wenn Sättigungsgrenze eines Pixels erreicht, 
+	Ladung schwappt auf benachbarte Pixel des Sensors usw
+	Hardwaremässig: Anti-Blooming-Gates auf Sensoren.
+
+
+Dunkelbild- und Weissbildkorrektor
+
+Aufnahme Bild ohne Beleuchtung mit langer Beleuchtungszeit: Dunkelbild
+Aufnahme Weisse Wand: Weissbild - für fixed Pattern Noise entfernung
+
+
+Signal to Noise Ratio
+
+Gross = Besser
+SNR = 20*log(Signal/Noise)
+SNR = Wurzel(NoElectrons) - Photonenrauschen 
+
+PTSNR
+
+	2 Signale: 1 ohne Rauschen / 2 mit Rauschen
+	Wie Standardabweichung: wobei Wert Signal 1 ist mittelwert
+	Log im Verhältnis zu max Pixelwert (z.b. 255)
+
+CCD Bildsensor
+
+	Je grösser Sensoren, desto Lichtempfindlicher, Mehr Dynamik - bei gleicher Sensorgrösse - Weniger Auflösung
+	Ladungen werden von Zelle zu Zelle verschoben -> zeilenweise an den Verstärker weitergeleitet.
+	-Auslesen eines einzelnen Pixels nicht möglich.
+	-Verstärker notwendig.
+	-Hoher Integrationsaufwand
+	+ Grosse Lichtempflindlichkeit
+	+ Wenig Rauschen
+
+	Interlance CCD Bildsensor - Auslesen je eines Halbbildes
+	-Bei Schnellen Bewegungen Sägezahneffekt
+	Progressiv CCd SCAN -> jede Zeile eine Verschiebeeinheit -> braucht mehr speicherplatz
+
+
+CMOS Sensoren
+	-Jede Fotozelle hat einen Verstärken
+	-Zugriff auf Speicherzelle wie beim RAM. 
+
+	+ günstigere Herstellkosten
+	+ weniger Stromverbrauch
+	+ Schnell
+	- Geringere Empfindlichkeit (Da kleinere Fotozellen) - kleinere Dynamik
+	- Rolling Shutter (Zeilenweise Beleuchtung: Bei bewegten Objekten Verzerrung)
+	- Rauschanfälliger ( geringe Dynamik -> grössere Verstärkung = mehr Rauschen)
+
+Farbaufnahme Prinzipien
+
+	parallel 3 s/w Chips -> abspielen wieder mit projektor und farbfilter
+	seriell 1 s/w Chip -> fotografie: 3x hintereinander.
+	Mosaik-Farb-Chip  -> Bayern Pattern
+		Einfacher Algorithmus: 4 Pixel zu einem zusammenfassen (2x Grün / 1x Rot / 1x Blau)
+		Raw-Format: Bild im Bayer Format
+	Multilayer Chip
+		Je nach Wellenlänge dringen Photonen unterschiedlich tief ins Silizium ein.
+		+ höhere Auflösung
+		+ keine Interpolationseffekte
+
+Kameraschnittstellen
+	Firewire
+	USB
+	Camera Link: braucht spezieller Framegrabber (A/D Wandler)
+	CosXpress: neuer Standard seit 2010
+
+**************
+Statistische Bildauswertung
+
+	Histogramm - Häufigkeitsverteilung der Grau / Farbwerte
+	X-Achse: grauwerte
+	Y-Achse: Häufigkeit
+
+	Wahrscheinlichkeitsdichte funktion häufigkeiten / Summe aller Pixel
+	Kumulatives Histogramm: für Automatische Kontrastanpassung (linearisierung)
+	2D Histogramm: 1. Bild Kanal Intensität: x-Achse, 2.Bild Kanal Intensität: y Achse
+		jede gefundene Wertkombination wird im historgramm in der positon [x,y] aufaddiert.
+		Intensität wird im Histogramm mit Farbe dargestellt.
+
+		Überblendung: werden bei x-max / y-max viele häufigkeiten gemessen -> überblendung / informationsverlust
+		Korrelation: Histogramm diagonale: hohe korrelation.
+		Heisse Pixel: 
+		dynamikumfang: pixel nur auf einer achse verteilt: dieser kanal höherer dynamikumfang.
+
+	Stat. Messgrösen
+	Min    		: gmin
+	Max    		: gmax
+	dynamic		: gmax-gmin
+	Kontrast	:(gmax-gmin)/(gmax+gmin)
+	Mittelwert 	: average - mittlere helligkeit des bildes
+	Mode		: häufigster Wert. (peak Histogramm)
+	Standardabw : mass für kontrast
+	Schiefe		: sum((g(x,y)-avg/s)^3)
+	Wölbung		: sum((g(x,y)-avg/s)^4) Abweichung von Normalverteilung
+	Entropy		: Informationsgehalt (Je höher die Entropie, desto gleichmäßiger und zufälliger ist etwas verteilt.)
