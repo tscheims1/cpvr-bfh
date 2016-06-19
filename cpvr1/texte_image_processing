@@ -394,11 +394,46 @@ Bildarithmetik
 	+,-,*,/ g(x,y)*k1+k2
 	eignet sich gut, um Beleuchtungsvariationen aus Bild zu entfernen. (bevor binarisierung)
 	Bei Division idr. k1 gross, Subtraktion: k2 gross
-	
 	Absolute Differenz:
 	g1(x,y) - g2(x,y) -> verschobene Objekte detektieren --> was gleicht ist: schwarz 
 	
 Logische Operationen
 	Wichtig: Weiss = 1, Schwarz = 0
 	Invert: XOR Weiss
+	
+
+Lokale Operatoren
+	lineare lokale Operatoren
+	Faltung / Convolution
+	Filter wird über einen bereich gelegt, und jedem pixel eine Gewichtung zugeteilt.
+	Eigenschaften d. Faltung: 
+		Kommutativ g*h = (h*g)*i
+		Assosizativ: g*h*i = (g*h)*i	
+		Distributiv: g*h+i*h = (g+i)*h (nur für lineare faltungen)
+	Separierbarkeit von Filtern:
+		Filter in x und y komponente zerlegen 
+		von n^2 zu 2n komplexität verringern: siehe: https://de.wikipedia.org/wiki/Separierbarkeit
+
+
+Tiefpassfilter
+	Bild wird weicher
+	Grauwertkanten werden verwischt
+	Details und Rauschen entfernt.
+	in homogenen Bereich: keine Wirkung	
+	Rechteckfilter: 1/9*[1,1,1;1,1,1;1,1,1]
+
+	Gaussfilter: 
+		besserer Tiefpassfilter, 
+		basiert auf Normalverteilung
+		je nach sigma anderer Filter
+		1/16* [1,2,1;2,4,2;1,2,1]
 		
+Hochpassfilter
+	Kanten werden weiss (kanten bestehen aus sehr vielen kleine wellen)
+	Rauschen verstärkt (bei jeder ableitung stärker)
+	Homogene Bereiche: Schwarz.
+	-> 1. und 2. ableitung
+	[-1,0,1;-1,0,1;-1,0,1] in x Richtung
+	[-1,-1,-1;0,0,0;1,1,1] in y Richtung
+	Gradientenbetrag: Wurzel(filterX^2 + filterY^2)
+	
