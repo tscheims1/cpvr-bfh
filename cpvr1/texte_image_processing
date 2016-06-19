@@ -362,3 +362,43 @@ Statistische Bildauswertung
 	Schiefe		: sum((g(x,y)-avg/s)^3)
 	Wölbung		: sum((g(x,y)-avg/s)^4) Abweichung von Normalverteilung
 	Entropy		: Informationsgehalt (Je höher die Entropie, desto gleichmäßiger und zufälliger ist etwas verteilt.)
+				: GraustufenBild 1 Graustufe H=0
+				: gleichmässig verteiltes Graubild: sum(log2(1/256)) entropie 8
+
+
+Punktoperationen
+	Invert: 255-g(x,y)
+	Binarisierung: Threshold entscheidend / z.B. Otsu Algorithmus, Berechnung Threshold schwierig.
+	Graustufen reduktion: Komprimierung, Abbildungsfunktion in Stufenform
+	Lineare Helligkeitskorrektur: g(x,y) = c*g(x,y)+b <--- Konstante B wird angepasst.
+	Gammakorrektur: Y = 2 Beinahme Schwarz(=kurve nach unten gekrümmt), Y = 1 Original, Y = 1/4 = sehr hell
+					Aufhellung nicht gleichmässig(helle weniger stark als dunkle partikel)			
+	
+	Lineare Kontrastkorrektur: g(x,y) = c*g(x,y)+b, c bestimmt kontrast((gmax-gmin)/(gmax+gmin))
+	Steilere Kurve: Mehr kontrast, flache kurve: weniger kontrast
+
+	Automatische Kontrasterhöhung
+		g(x,y) = (g(x,y)-gmin)*255/(gmax-gmin)
+		Histogramm wird gestreckt
+		Wenn gmin und Gmax = 0,255, dann keine Kontrasterhöhung möglich.
+			-> nur Pixel mit gewisser Sättigung betrachten
+
+	Kontrasterhöhung durch Histogrammausgleich
+		Ziel: Histogramm gleichverteilt, Kumulatives Histogramm: Linear
+		f(g) = H(g)* (K-1)/N :K grösstmöglicher Grauwert; N summer aller Pixel H(g) Kumulatives Historgramm
+		Wenn wenig Farben -> kommt zu rauschen, da die Graustufen zu fest aufgeteilt werden.
+		Kontraste als Farben darstellen ( Mensch kann nur ca. 60 Graustufen unterscheiden)
+	
+
+Bildarithmetik
+	+,-,*,/ g(x,y)*k1+k2
+	eignet sich gut, um Beleuchtungsvariationen aus Bild zu entfernen. (bevor binarisierung)
+	Bei Division idr. k1 gross, Subtraktion: k2 gross
+	
+	Absolute Differenz:
+	g1(x,y) - g2(x,y) -> verschobene Objekte detektieren --> was gleicht ist: schwarz 
+	
+Logische Operationen
+	Wichtig: Weiss = 1, Schwarz = 0
+	Invert: XOR Weiss
+		
