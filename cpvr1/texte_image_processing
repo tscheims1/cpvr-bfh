@@ -436,4 +436,23 @@ Hochpassfilter
 	[-1,0,1;-1,0,1;-1,0,1] in x Richtung
 	[-1,-1,-1;0,0,0;1,1,1] in y Richtung
 	Gradientenbetrag: Wurzel(filterX^2 + filterY^2)
+	Gradientenrichtung atan(filterx,filtery)
+	Achtung: negative Kanten verschwinden
+
+	Sobel: Gauss + 1. Ableitung
+	SobelX[-1,0,1;-2,0,2;-1,0,1]
+	Negative Kanten verschwinden.
+
+	Kantendedektion in Beide Richtungen: approx 2. ableitung
+		Laplace [1,1,1;1,-8,1;1,1,1,1] --> wie felder in der netzhaut, welche für kontrastsehen zuständig sind.
+		Sehr anfällig auf Rauschen
+		Laplace + Gauss -> mexican hat.
+
+	Punktspreizfunktion
+	[0,0,0;
+	 0,1,0; für's finden von faltungsmasken --> faltungsmaske ist im frequenzraum invers.
+	 0,0,0]
+
+
+Anwendung Bildschärfung.
 	
