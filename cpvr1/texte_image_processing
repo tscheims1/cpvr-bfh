@@ -543,6 +543,7 @@ Globale Operationen
 		M:länge des Signals
 		pro Sin/Cos-Signal: 1 Iteraton über das ganze Signal 
 		Erstes Sinusschwingung: DC (mittelwert der Signalwerte)
+		von tief bis hohe frequenzen 
 		
 		Eingangssignale: Komplexe Zahlen (bei transformation: imaginärteil:0)
 		Ausgangssignal:  Komplexe Zahlen
@@ -560,4 +561,5 @@ Globale Operationen
 		Amplitude Wurzel(U^2+V^2)
 		Phase tan^-1(U/V)
 		Ausgabe: M*N Array aus komplexen Zahlen
-
+		Amplitude: Auskunkft über Signalstärke
+		Phase: Ortsinformationen
