@@ -455,4 +455,91 @@ Hochpassfilter
 
 
 Anwendung Bildschärfung.
+	Unscharfmaskierung: Tiefpassfilter
+	Ansonsten mit Laplace+Gaussian 2. Ableitung: Hochpassfilter
+
+
+Morphologische Operatoren
 	
+	SE (Strukturelement) hat immer einen Hotspot (anker)
+		Wenn nicht quadratisch: restliche elemente "dont care"
+	Wahl des SE matchentscheidend	
+	Dilatation (=anfetten)
+		Rangordnung: Zielpixel = MAX aller Pixel in SE
+		Logische Ordnung: Or operation aller Pixel im SE
+
+	Erosion(=abnehmen)
+		Rangordnung: Zielpixel = MIN aller Pixel in SE
+		Logische Ordnung: And operation aller Pixel im SE
+
+	Closing 
+		Dilatation, danach Erosion
+		Löchen geschlossen
+		Concave Ränger ausgefüllt
+	Opening
+		Erosion, danach Dilatation
+		kleine Strukturen verschwinden 
+		Konkave Ränder abgetragen
+
+	Edge Detection
+	edge Intern	B - (B erosion S)
+	edge extern B diletation S - B
+	edge thick (B diletation S) - (B erosion S)
+
+	Hit Or Miss Operator
+		(B ero S) AND (S^c dil S^c) = startpunkt gesuchtes Element
+		Dont Care evt. mit 0 ersetzen. 
+
+	...Auf Graustufenbilder
+		Als 3D Bilder darstellbar
+		SE enthalten reele Zahlen
+		Nur mit Rangordnungsoperationen realisierbar
+		Pixelwerte des Zielpixels werden jetzt auch berücksichtigt.
+		dilatation: max(G(x+i,y+j) +s(i,j))
+		erosion: min(g(x+i,y+j) - s(i,j))
+
+		Ist SE überall null -> dilatation -> maximumsfilter; erosion: minimumsfilter
+
+	Medianfilter
+		Besterweichzeichner
+		Ist nicht anfällig gegen Rauschen
+		Kanten bleiben erhalten
+	
+	Opening / Closing Graustufenbilder
+		Closing: Helle Details bleiben - Dunkle verschwinden
+			x,y Skala: füllt löcher auf
+		Opening: Dunkle Details bleiben, Helle verschwinden
+			x,y Skala: schneidet wipfel ab
+
+	Edge detection: Wie binäre operation
+
+		edge Intern	B - (B erosion S)
+		edge extern B diletation S - B
+		edge thick (B diletation S) - (B erosion S)
+		edge thin min(edge intern, edge extern)
+
+
+	Bot Hat / Top Hat 
+		Bot hat = Closing - B
+			kleine Details, welche dunkler als Umgebung sind -> weiss
+		Top Hat = B - Opening
+			kleine Details, welche heller als Umgebung sind -> weiss
+			 
+
+Globale Operationen
+	Smoothie -> Rezept = Transformation
+	Rezept -> Smoothie = Synthese,Analyse
+		
+	Fourier Transformation
+		Jedes Periodische Signal: endliche Summe von Sinus und Cos Signalen	
+		SinusSchwingung: A*sin(w*x+y)
+		w Kreisfrequenz 2pif = w
+		T(dauer) = 2PI/w von hochpunkt zu hochpunkt
+		sinusoid = cos(wx)+i*sin(w*x)
+		
+		1/2pi*Integral(g(x)*(-cos(w*x)-sin(w*x)) 
+		Eingangssignale: Komplexe Zahlen (bei transformation: imaginärteil:0)
+		Ausgangssignal:  Komplexe Zahlen
+
+	
+
