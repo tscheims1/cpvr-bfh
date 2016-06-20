@@ -537,9 +537,27 @@ Globale Operationen
 		T(dauer) = 2PI/w von hochpunkt zu hochpunkt
 		sinusoid = cos(wx)+i*sin(w*x)
 		
+		Transformation
 		1/2pi*Integral(g(x)*(-cos(w*x)-sin(w*x)) 
+		g(m) =1/Wurzel(M)*Summe(0..M, g(u)*e^(i*2pi*m*u)/M
+		M:länge des Signals
+		pro Sin/Cos-Signal: 1 Iteraton über das ganze Signal 
+		Erstes Sinusschwingung: DC (mittelwert der Signalwerte)
+		
 		Eingangssignale: Komplexe Zahlen (bei transformation: imaginärteil:0)
 		Ausgangssignal:  Komplexe Zahlen
 
-	
+		Amplitude = Wurzel(g(m)real^2+g(m)imag^2)
+		Phase = atan(gimag(m)/greal(m))	
+		in 2D 4 verschachtelete Schlaufen
+		FFT verbessert zu n log n
+		Nyquistfrequenz: M/2
+
+		2D Fouriertransformation
+		Bilder Spiegeln: sonst sehr hohe frequenzen
+		M*N Signal 
+		Sinusfrequenz 2D = 2PI*(U*m+V*n)
+		Amplitude Wurzel(U^2+V^2)
+		Phase tan^-1(U/V)
+		Ausgabe: M*N Array aus komplexen Zahlen
 
