@@ -528,7 +528,7 @@ Morphologische Operatoren
 
 Globale Operationen
 	Smoothie -> Rezept = Transformation
-	Rezept -> Smoothie = Synthese,Analyse
+	Rezept -> Smoothie = Synthese
 		
 	Fourier Transformation
 		Jedes Periodische Signal: endliche Summe von Sinus und Cos Signalen	
@@ -562,4 +562,75 @@ Globale Operationen
 		Phase tan^-1(U/V)
 		Ausgabe: M*N Array aus komplexen Zahlen
 		Amplitude: Auskunkft über Signalstärke
+			hohe und tiefe frequenzen können auch im frequenzraum entfernt werden.
+			-> inbs. strukturelle störungen gut erkenntbar.
 		Phase: Ortsinformationen
+		Faltungssatz: g*h = IFT(FT(g)*FT(h)) --> komponentenmultiplikation -> Inverse (Entfaltung: Division möglich)
+			Wenn Pointspreadfunction bekannt --> Verfälschtes Bild wiederherstellbar
+			sehr, sehr, sehr rauschanfällig
+			suchen nach PSF (= blind deconvolution)
+		grosse Bilder: Faltung mit Fourier u.u. Schneller
+
+	Wavlet:
+		nicht bekannt wo sind die entsprechende Schwingungen bei der Fouriertransformation befinden.
+		(=Windowed Fourier Transformation)
+		Nachteil: unempflindlich gegen kleine Frequenzen, die nur sporadisch auftreten
+		
+		Verbesserung: Wavlet-Tranformation: Analyse der Frequenzen in mehreren Auflösungen
+		Anwendung: Bildkompression; dynamische Auflösungen (wg. geringer Datenmenge)
+		Integral des Wavlets = 0!
+		Beispiele: Wavelets: Mexican Hut, Haar Wavlet
+		zuerst tiefe, dann immer höhere Frequenzen bestimmen
+		1 Basis Wavlet: Kinder Wavlet: skaliert, verschoben CWT(a,b) a = skalierungsfaktor; b = verschiebung im ort.
+		Beginn mit sehr tiefer gestrekter Frequenz: multiplikation mit überdektem funktionsabschnitt -> wavlet koeffizient (= grosse fläche = grosse übereinstimmung)
+		Haartransformation:
+			Tiefpass: [0.5,0.5]
+			Hochpass [0.5,-0.5]
+			synthese links [1,1]
+			synthese rechts [1,-1]
+		2D Haartransformation: immer 4 filter -> 1 tiefpass, 1 hochpass, synthesefilter links, synthesefilter rechts
+		Standard deconvolution: zuerst Zeilen, dann Spalten
+		non Standard deconvoltion: zeilen und spalten abwechslungsweise
+
+	Hough Transformation
+
+		Sehr umempfindlich gegen Rauschen / Lücken in Geraden, Kreisen, ect
+		Ohne Parametereinschränkung: Sehr speicherintensiv
+		r = x*cos(phi)+ y*sin(phi) für geraden
+		Steigung:-( cos(phi) / sin(phi) )
+		x-achse theta
+		y-achse r
+		Anzahl Element muss bekannt sein.
+		Akkumulator-Raum
+		Vor gebrauch: Maximum ermitteln (sonst wird eine gerade u.u. 2x detektiert)
+		Non-Maximum Supression (z.B. filter 3x3 -> alles killen ausser maximum)
+
+		Kreise
+		(x-x0)^2+(y-y0)^2 = r^2
+		x0,y0 = zentrum des kreises
+		für jeden radius einen parallelraum
+
+
+	Hauptkomponententransformation
+		mehrdimensionale datenräume auf eine dimension reduziert
+		Merkmalsvektor: alle Werte einer Position (aus n dimension)
+		XPC = MEigenvektoren*M Merkmalsvektoren (matrix aus eigenvektoren * matrix aus merkmalsvektoren)
+		kovarianz = 1/n*Sum(Xi-xmean)*(yi-ymean))
+		Kovarmatrix: cxy = 
+			[cov(x,x),cov(x,y)
+			 cov(y,x),cov(y,y)]
+		bei mehreren dimensionen: jede mit jeder dimension	
+		aus kovarmatrix: eigenvektoren / eigenwerte berechnen
+			sortierung nach grösstem eigenwert
+		eig(x,y)^t *mekrmalsvektor^t = PCA
+		merkmalsvektor wird transponiert und der mittelwert von jedem element subtrahiert.
+
+
+		sehr anfällig gegen beleuchtungsveränderungen
+		eigenvektor: A*v = lamda*v
+		v= eigenvektor, lamda = eigenwert
+		eigesetzt für statistische klassifikation
+		mustererkennung - gesichtserkennung
+		Berechnung oriented bounding box: (1x sigma: 68% des objekts befinden sich darin) --> auf 3x sigma erweitern
+			-> es braucht x,-x,y,-y vektor für die bestimmung der oriented bounding box
+		
