@@ -631,6 +631,7 @@ Globale Operationen
 		v= eigenvektor, lamda = eigenwert
 		eigesetzt für statistische klassifikation
 		mustererkennung - gesichtserkennung
+		Interpretation: PCA Diagramm: 1. Achse Dimension mit grösster Varianz; 2. Achse 2. grösste Varianz
 		Berechnung oriented bounding box: (1x sigma: 68% des objekts befinden sich darin) --> auf 3x sigma erweitern
 			-> es braucht x,-x,y,-y vektor für die bestimmung der oriented bounding box
 		

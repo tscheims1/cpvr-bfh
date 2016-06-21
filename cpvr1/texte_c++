@@ -1,0 +1,56 @@
+c++ Build steps
+- pre-processor des source codes (liefert tokens (= identifier,keywords, whitespaces, literals)
+- single pass compiler --> zur compilezeit müssen allen informationen vorhanden sein	
+- linking der objekte
+
+
+main()
+vor main methode: 
+	konstruktoren von globalen static objekten aufgerufen
+nach main methode
+	destruktoren von globalen static objekten aufgerufen
+
+funktionen: werden deklariert und definiert
+
+Datentypen: limits.h definiert / float.h epsilon festgelegt
+	plattformunabhängig!
+	wchar_t utf16 
+	Speicherdeklaration
+		static   -> lebensdauer auf programmlaufzeit verlängert
+		extern   -> nur deklaration (speicherallokation erfolgt in anderem modul)
+		register -> hinweis: performance upgrade
+
+Referenz:
+	Konstante Pointer, die bei jeder Verwendung dereferenziert werden.
+Deklaration/Definiton Variable
+	[storage class] type variable_name [ = literal];
+	Deklaration int i; //ohne Speicher zu allokieren
+	i = 12; //speicher allokiert
+	Zugriff auf globale Variable mittels ::i
+	innerhalb{} klammern ebenfalls deklaration/definition der selben lokalen 
+variable möglich möglich
+
+Verwendung von Instanzen
+	Code bereich geshared
+	Member Variablen pro Instanz
+	expliziter Memberaufruf
+	pP2->CPoint::set(200, 150);
+	void CLine::CPoint::set(float,float) {...}; //aufruf einer verschachtelten funk.
+	Nur Defautl Konstruktor erstellt, wenn kein Konstruktor definiert
+	Copy Constructor: T::T(const T&)
+
+
+!!Funtkonsüberladung!!
+	Unterscheidung(Signatur) Name+ anzahl und typen der Funktion
+	nur Rückgabewert anders / zusätzliches const / Type* Type[] / Type Type&
+		keine überladung
+	Extern C für Einbetten C Fuktion: nur Name muss unterschiedlich sein
+
+	Templates
+	template<class T> T Max(T, T);
+	bei lokalen statischen Variablen: jeder spezifische Datentyp implementation
+	hat seine eigene static variable
+	Template-Funktionen können überladen werden
+
+		
+	
