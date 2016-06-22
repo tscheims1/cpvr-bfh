@@ -48,9 +48,71 @@ Verwendung von Instanzen
 
 	Templates
 	template<class T> T Max(T, T);
+	template<class T> T Max (T a, T b) // definition
 	bei lokalen statischen Variablen: jeder spezifische Datentyp implementation
 	hat seine eigene static variable
 	Template-Funktionen können überladen werden
+	template <class T> class CStack{};//deklaration
+	template <class T> void CStack<T>::func(){}//definition
+		im selben file because of: single pass compiler
+	use CStack<int> intStack();
 
-		
-	
+	Vererbung: Daten- und Funktionsmember werden weitervererbt
+		Ausnahme: Konstruktor, Destruktor, zuweisungsoperator
+	Zugriffsrecht vererbung:
+		protected ->  public wird zu protected
+		private   -> public, protected wird zu private
+		keine typenkompatibilität mehr!
+		Generell -> Base ohne expliziten cast möglich
+		Kostruktorverkettung: BaseConstructor, DerivatedConstructor
+		Destruktorverkettung: DerivatedDestruktor, BaseConstructor
+
+	Class-Member-Hiding.
+		Member in Derivated Class überdecken Member der Base Klasse
+			!!-> hier ist nur name für signatur entscheidend!!	
+			zugriff auf Member: CBase::member
+
+		Static Polymorphismus: (bestimmung des Aufrufs zur compilezeit)
+			Funktionsüberladung
+		dynamic Polymorphismus:
+			virtuelle Methoden
+
+		Funktionsüberladung: 
+			gleicher Name, unterschiedliche signatur (parameteranzahl / typen)
+		Funktionsüberschreibung:
+			gleicher Name UND gleiche signatur.
+
+		overriding greift vor der Überladund
+		bsp:
+
+		class A
+		{
+		 void list()
+		}
+		Class B: public A
+		{
+		 void list(bool flag)
+
+		}
+		B b;
+		b.list() //compile error
+		b.A::list() //works
+
+
+		CFigure* pF1 = new CLine(15, 15, 25, 25);
+		CFigure = Static Type
+		CLine = dynamic Type
+		!!Standardmässsig: aufruf des Static types!!
+		Keyword virtual ändert dies - Destruktor immer Virtuell!
+
+
+	Casts
+		static_cast<T>(identifier) 		//implizites typcasting (z.B. int zu double)
+		const_cast<T*>(const identifier) //nur pointer const zu nicht const
+		reinterpret_cast<T>(identifier) //jegliche typprüfung ausgeschalten
+		dynamic_cast<T>(identifier) 	//down cast / nur möglich wenn basisklasse mindestens 1 virtuelle funktion
+
+	Mehrfachvererbung	
+		Klassenmember bereits mehrdeutig, wenn gleicher name
+		Bei diamantförmigen Klassenhierarchien: vererbung mittels virtual
+			-> somit nur 1x klasseninformation von basisklasse in abgeleiteten klassen enthalten.
