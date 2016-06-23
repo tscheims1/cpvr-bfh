@@ -8,7 +8,9 @@ main()
 vor main methode: 
 	konstruktoren von globalen static objekten aufgerufen
 nach main methode
-	destruktoren von globalen static objekten aufgerufen
+	destruktoren von globalen static objekten aufgerufen	
+	destruktoren von dynamisch allokierten typen werden nicht beim verlassen der main aufgerufen
+		sondern mittels delete
 
 funktionen: werden deklariert und definiert
 
@@ -38,6 +40,11 @@ Verwendung von Instanzen
 	void CLine::CPoint::set(float,float) {...}; //aufruf einer verschachtelten funk.
 	Nur Defautl Konstruktor erstellt, wenn kein Konstruktor definiert
 	Copy Constructor: T::T(const T&)
+	CLine::CLine(const CPoint p1, const CPoint p2) //achtung: es wird ebenfalls copy constructor für p1 und p2 aufgerufen. weil übergabe by value
+	int func(CPoint p){} // aufruf eines Copy constructor (da by value - danach u.u. assignemt aufruf und destruktor.
+	Destruktor wird bei übergebenen Objekten am Ende des Scopes automatisch aufgerufen.
+
+	void CLine::list() const //non-Static-Member der Klasse werden nicht manipuliert
 
 
 !!Funtkonsüberladung!!
@@ -45,6 +52,7 @@ Verwendung von Instanzen
 	nur Rückgabewert anders / zusätzliches const / Type* Type[] / Type Type&
 		keine überladung
 	Extern C für Einbetten C Fuktion: nur Name muss unterschiedlich sein
+
 
 	Templates
 	template<class T> T Max(T, T);
@@ -76,6 +84,7 @@ Verwendung von Instanzen
 			Funktionsüberladung
 		dynamic Polymorphismus:
 			virtuelle Methoden
+			virutal Keyword wird implizit vererbt!
 
 		Funktionsüberladung: 
 			gleicher Name, unterschiedliche signatur (parameteranzahl / typen)
@@ -110,9 +119,97 @@ Verwendung von Instanzen
 		static_cast<T>(identifier) 		//implizites typcasting (z.B. int zu double)
 		const_cast<T*>(const identifier) //nur pointer const zu nicht const
 		reinterpret_cast<T>(identifier) //jegliche typprüfung ausgeschalten
-		dynamic_cast<T>(identifier) 	//down cast / nur möglich wenn basisklasse mindestens 1 virtuelle funktion
+		dynamic_cast<T>(identifier) 	//down cast / nur möglich wenn / basisklasse mindestens 1 virtuelle funktion	
+										//0 Pointer, wenns nicht geklappt hat.
 
 	Mehrfachvererbung	
 		Klassenmember bereits mehrdeutig, wenn gleicher name
 		Bei diamantförmigen Klassenhierarchien: vererbung mittels virtual
 			-> somit nur 1x klasseninformation von basisklasse in abgeleiteten klassen enthalten.
+
+
+	Excpetion Spezifikationen für Interfaces
+		void f() throw ( Exception1, Exception2 );//wirft exception1, und 2
+		void f() throw (); // wirft keine exception
+		Nicht abgefangene Expeptions: terminate aufgerufen		
+			callback: set_terminate() überschreiben
+		exit --> keine destruktoren mehr aufgerufen
+
+
+C++ Standardlibrary
+	STL unterteilt in containers, Iterators, Algorithms, utility: z.b. pair
+	Inhalt: Streams, IO, i18n, Numerics, STL
+	C++ Standard Lib: #include <iostream>
+	C Libs im std Namespace #include <cstdlib>
+	C Libs Ohne namespace #include <stdlib.h>
+	string -> template basic_string<char>
+	standard Input/output cin, cerr, cout, clong
+	
+	stream
+		eingabe:
+			peek --> liefert nächstes zeichen (ohne auslesen
+			get	 --> nächstes zeichen
+		ausgabe:
+			flush() -> ausgabestream leeren
+			put() -> gibt übergebenes zeichen aus
+			write() schreibt eine spezifische anzahl an zeichen
+		Fehlerbit eines streams:
+	 		ios::goodbit alles in Ordnung (kein Fehler‐Bit gesetzt)
+		 	ios::eofbit end of file ‐ das Ende der Daten ist erreicht
+		 	ios::failbit Fehler ‐ der letzte Vorgang wurde nicht korrekt abgeschlossen (z.B. ungültiges Zeichen für int Typ eingelesen)
+		 	ios::badbit fataler Fehler ‐ Zustand des Streams ist nicht definiert (z.B Disk voll)		
+			
+			fehlerbits löschen clear() 
+			fehlerbits setzen clear(ios::badbit)
+		Flags bei Streams:
+			// Setzen der Flags “ios::showbase” und “ios::hex”
+			cout.setf(ios::showbase | ios::hex); cout << 255 << endl;
+			cout << setiosflags(ios::showbase | ios::hex) << 255 << endl;
+			cout << showbase << hex << 255 << endl;
+			cout.flags(0); // alle Format-Flags zurücksetzen
+
+			 ios::skipws //skip whitespaces
+		File
+			kein zugriff auf Datei Infos (grösse / Attribute) --> system calls
+			umlenken von streams: streambuf* strm_buffer = cout.rdbuf(); //redirect buffer
+
+			
+STL
+	In drei Bereiche unterteilt:
+		- Container
+		- Algorithmen
+		- Iteratoren
+
+	Container
+		Sequenzielle container: list, queue, vector
+			dequeue: wie vektor, aber vorne und hinten anfügbar
+			list: doppelt verkettete liste
+		Assoziative Container map,set //als binärbäume implementiert.
+			map: als red/black tree implementiert.key value pairs
+			set: werte dürfen nicht verändert werden
+		Anf. an STL Datentyp
+			Copy Constructor
+			Zuweisungsoperator
+			Destruktor
+			Operator <  (assoziative datenstruktur)
+			Operator ==
+		STL Container: mit pointer -> vergleichfunktion überladen, da sonst pointer verglichen werden!
+
+	Iteratoren
+		ForwardIterator, Bidirectional Iterator, RandomAccess Iterator (element zugriff)
+	Iterator Interface Operatoren
+		iterator::operator*() liefert das Element an der aktuellen Position des Iterators
+		iterator::operator++() setzt den Iterator zum nächsten Datenelement
+		iterator::operator==() prüft ob zwei Iteratoren auf das gleiche Datenelement zeigen
+		iterator::operator!=() prüft ob zwei Iteratoren auf versch. Datenelemente zeigen
+			
+		beispiel verwendung interator	
+		set<int>::iterator pos;
+		for ( pos = iSet.begin(); pos != iSet.end(); pos++ ) {
+		cout << *pos << ' ';
+		}
+		
+	Algorthmen	
+		Global -> von iteratoren gesteuert.
+		find,for_each,count, //imutable
+		reserve,sort //mutable
